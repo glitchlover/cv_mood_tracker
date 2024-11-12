@@ -44,7 +44,8 @@ class MoodTrackerCalendarState extends State<MoodTrackerCalendar> {
               return _buildDayWithMood(day);
             },
             selectedBuilder: (context, day, focusedDay) {
-              return _buildDayWithMood(day, isSelected: true);
+              bool isToday = isSameDay(DateTime.now(), day);
+              return _buildDayWithMood(day, isSelected: true, isToday: isToday);
             },
             todayBuilder: (context, day, focusedDay) {
               return _buildDayWithMood(day, isToday: true);
@@ -61,20 +62,29 @@ class MoodTrackerCalendarState extends State<MoodTrackerCalendar> {
       decoration: BoxDecoration(
         color: isSelected
             ? ColorHelper.primaryColor.withOpacity(0.3)
+            : isToday ? ColorHelper.primaryColor.withOpacity(0.15)
             : Colors.transparent,
         borderRadius: BorderRadius.circular(8.0),
-        border: isToday ? Border.all(color: ColorHelper.primaryColor, width: 2) : isSelected? Border.all(color: ColorHelper.primaryColor.withOpacity(0.1)) : null,
+        border: isSelected
+                ? Border.all(
+                    color: ColorHelper.primaryColor.withOpacity(0.2), width: 2)
+                : null,
       ),
       margin: const EdgeInsets.all(4.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            day.day.toString(),
-            style:StyleHelper.textStyleMediumSemiBold
-          ),
+          Text(day.day.toString(),
+              style: isToday
+                  ? StyleHelper.textStyleMediumBold
+                      .copyWith(color: ColorHelper.primaryColor)
+                  : StyleHelper.textStyleMediumSemiBold),
           SpaceHelper.height4,
-          (mood != null) ? Text(mood) : Container(height: 20,),
+          (mood != null)
+              ? Text(mood)
+              : Container(
+                  height: 20,
+                ),
           SpaceHelper.height4
         ],
       ),
