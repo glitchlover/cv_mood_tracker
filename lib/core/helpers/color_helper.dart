@@ -8,10 +8,11 @@ class ColorHelper {
   static const Color cardColor = Color(0xFFEBEBEB);
   static const Color forground = Color(0xFF2F2040);
   static const Color mutedForgroundColor = Color(0xFF574769);
-  static const Color yellowColor = Color(0xFFFFC800);
-  static const Color redColor = Color(0xFFFE3F5F);
-  static const Color greenColor = Color(0xFF4CFC98);
-  static const Color blueColor = Color(0xFF3686FF);
+  static const Color orangeColor = Color(0xFFF7B076);
+  static const Color yellowColor = Color(0xFFFEF496);
+  static const Color redColor = Color(0xFFFC746A);
+  static const Color greenColor = Color(0xFF7AD97D);
+  static const Color blueColor = Color.fromARGB(255, 120, 182, 220);
   static const Color textColor = forground;
   static const Color iconColor = forground;
   static const Color buttonTextColor = backgroundColor;
