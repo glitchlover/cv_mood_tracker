@@ -1,3 +1,4 @@
+import 'package:cv_mood_tracker/core/helpers/asset_helper.dart';
 import 'package:cv_mood_tracker/core/helpers/color_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
@@ -20,43 +21,43 @@ class MoodFloatingActionButton extends StatelessWidget {
       overlayColor: ColorHelper.secondaryBackgroundColor,
       children: [
         SpeedDialChild(
-          child: const Icon(Iconsax.emoji_sad5),
-          backgroundColor: ColorHelper.redColor,
-          label: 'Very Sad',
+          child: Image.asset(AssetHelper.awful),
+          backgroundColor: Colors.transparent,
+          label: 'Awful',
           onTap: () {
-            Get.toNamed('/mood', arguments: 'verySad');
+            Get.toNamed('/mood', arguments: 'awful');
           },
         ),
         SpeedDialChild(
-          child: const Icon(Iconsax.emoji_sad),
-          backgroundColor: ColorHelper.orangeColor,
+          child: Image.asset(AssetHelper.sad),
+          backgroundColor: Colors.transparent,
           label: 'Sad',
           onTap: () {
             Get.toNamed('/mood', arguments: 'sad');
           },
         ),
         SpeedDialChild(
-          child: const Icon(Iconsax.emoji_normal),
-          backgroundColor: ColorHelper.yellowColor,
+          child: Image.asset(AssetHelper.neutral),
+          backgroundColor: Colors.transparent,
           label: 'Neutral',
           onTap: () {
             Get.toNamed('/mood', arguments: 'neutral');
           },
         ),
         SpeedDialChild(
-          child: const Icon(Iconsax.emoji_happy),
-          backgroundColor: ColorHelper.greenColor,
+          child: Image.asset(AssetHelper.happy),
+          backgroundColor: Colors.transparent,
           label: 'Happy',
           onTap: () {
             Get.toNamed('/mood', arguments: 'happy');
           },
         ),
         SpeedDialChild(
-          child: const Icon(Iconsax.emoji_happy5),
-          backgroundColor: ColorHelper.blueColor,
-          label: 'Very Happy',
+          child: Image.asset(AssetHelper.awsome),
+          backgroundColor: Colors.transparent,
+          label: 'Awsome',
           onTap: () {
-            Get.toNamed('/mood', arguments: 'veryHappy');
+            Get.toNamed('/mood', arguments: 'awsome');
           },
         ),
       ],
