@@ -13,20 +13,17 @@ class ContainerHelper {
       child: Scaffold(
         appBar: Get.find<MoodAppBuilderController>().currentIndex == 0
             ? MoodAppBar.homeAppbar(user: "John Doe")
-            : MoodAppBar.moodAppbar(user: "John Doe"),
+                : MoodAppBar.normalAppbar(user: "John Doe"),
         bottomNavigationBar: const MoodBottomNavigationBar(),
         floatingActionButton: const MoodFloatingActionButton(),
         floatingActionButtonLocation: MoodFloatingActionButton.location,
         body: Container(
       padding: const EdgeInsets.all(SpaceHelper.space8),
-      child: PageView(
-        controller: PageController(),
-        children: [
-          SingleChildScrollView(
-          physics: const ClampingScrollPhysics(),
-          child: child,
-        ),]
-      ),))
+              child: SingleChildScrollView(
+                physics: const ClampingScrollPhysics(),
+                child: child,
+              ),
+            ))
     );
   }
 

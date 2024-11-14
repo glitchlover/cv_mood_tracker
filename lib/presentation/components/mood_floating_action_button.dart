@@ -1,6 +1,7 @@
 import 'package:cv_mood_tracker/core/helpers/color_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class MoodFloatingActionButton extends StatelessWidget {
@@ -23,7 +24,7 @@ class MoodFloatingActionButton extends StatelessWidget {
           backgroundColor: ColorHelper.redColor,
           label: 'Very Sad',
           onTap: () {
-            // Handle very sad mood
+            Get.toNamed('/mood', arguments: 'verySad');
           },
         ),
         SpeedDialChild(
@@ -31,7 +32,7 @@ class MoodFloatingActionButton extends StatelessWidget {
           backgroundColor: ColorHelper.orangeColor,
           label: 'Sad',
           onTap: () {
-            // Handle sad mood
+            Get.toNamed('/mood', arguments: 'sad');
           },
         ),
         SpeedDialChild(
@@ -39,7 +40,7 @@ class MoodFloatingActionButton extends StatelessWidget {
           backgroundColor: ColorHelper.yellowColor,
           label: 'Neutral',
           onTap: () {
-            // Handle neutral mood
+            Get.toNamed('/mood', arguments: 'neutral');
           },
         ),
         SpeedDialChild(
@@ -47,7 +48,7 @@ class MoodFloatingActionButton extends StatelessWidget {
           backgroundColor: ColorHelper.greenColor,
           label: 'Happy',
           onTap: () {
-            // Handle happy mood
+            Get.toNamed('/mood', arguments: 'happy');
           },
         ),
         SpeedDialChild(
@@ -55,7 +56,7 @@ class MoodFloatingActionButton extends StatelessWidget {
           backgroundColor: ColorHelper.blueColor,
           label: 'Very Happy',
           onTap: () {
-            // Handle very happy mood
+            Get.toNamed('/mood', arguments: 'veryHappy');
           },
         ),
       ],

@@ -1,3 +1,6 @@
+import 'package:cv_mood_tracker/core/helpers/color_helper.dart';
+import 'package:cv_mood_tracker/core/helpers/style_helper.dart';
+import 'package:cv_mood_tracker/presentation/components/common_components.dart';
 import 'package:flutter/material.dart';
 
 class MoodNewsCard extends StatelessWidget {
@@ -14,59 +17,45 @@ class MoodNewsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16.0),
-      ),
-      elevation: 4,
-      margin: const EdgeInsets.all(8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // News Image
-          ClipRRect(
-            borderRadius: const BorderRadius.only(
-              topLeft: Radius.circular(16.0),
-              topRight: Radius.circular(16.0),
-            ),
-            child: Image.asset(
-              imageUrl,
-              height: 180,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // News Title
-                Text(
-                  title,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // News Image
+        CommonComponents.itemCard(
+          imageUrl: imageUrl,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // News Title
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 8),
+              // Tag Chip
+              Chip(
+                labelStyle: StyleHelper.textStyleSmallBold,
+                label: Text(
+                  tag,
                   style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    fontSize: 12,
                   ),
                 ),
-                const SizedBox(height: 8),
-                // Tag Chip
-                Chip(
-                  label: Text(
-                    tag,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                    ),
-                  ),
-                  backgroundColor: Colors.blueAccent,
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                ),
-              ],
-            ),
+                backgroundColor: ColorHelper.blueColor,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16.0),
+                    side: const BorderSide(
+                        width: 1, color: ColorHelper.blueColor)),
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

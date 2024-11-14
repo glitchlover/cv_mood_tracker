@@ -10,7 +10,7 @@ class NewsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return ContainerHelper.mainScaffold(
       child: ListView.builder(
-                physics: const NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: 4,
             itemBuilder: (context, index) => MoodNewsCard(

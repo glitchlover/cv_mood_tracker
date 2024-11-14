@@ -5,6 +5,8 @@ import 'package:cv_mood_tracker/core/helpers/method_helper.dart';
 import 'package:cv_mood_tracker/core/helpers/space_helper.dart';
 import 'package:cv_mood_tracker/core/helpers/style_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 
 class MoodAppBar {
   static AppBar homeAppbar({required String user}) {
@@ -49,7 +51,7 @@ class MoodAppBar {
     );
   }
 
-  static moodAppbar({required String user}) {
+  static normalAppbar({required String user}) {
     return AppBar(
       title: RichText(
         text: TextSpan(children: [
@@ -62,4 +64,13 @@ class MoodAppBar {
       ),
     );
   }
+
+  static AppBar plainAppbar() {
+    return AppBar(
+      leading: GestureDetector(
+        onTap: () => Get.back(),
+        child: const Icon(Iconsax.arrow_left)),
+    );
+  }
+
 }

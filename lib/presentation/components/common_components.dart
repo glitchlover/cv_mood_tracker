@@ -3,24 +3,30 @@ import 'package:cv_mood_tracker/core/helpers/color_helper.dart';
 import 'package:cv_mood_tracker/core/helpers/style_helper.dart';
 
 class CommonComponents {
-  static Widget itemCard({required String title, required IconData icon}) {
-    return Container(
-      height: 100,
-      width: 100,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: ColorHelper.primaryColor,
+  static Widget itemCard({required Widget child, String? imageUrl}) {
+    return Card(
+      shadowColor: ColorHelper.shadowColor,
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16.0),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(icon, size: 30),
-          Text(
-            title,
-            style: StyleHelper.textStyleMediumBold,
-          ),
-        ],
-      ),
+      child: Column(children: [
+        imageUrl != null
+            ? Image.asset(
+                imageUrl,
+                height: 180,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              )
+            : Container(),
+        Container(
+            padding: const EdgeInsets.all(16.0),
+            width: double.maxFinite,
+            decoration: const BoxDecoration(
+              color: ColorHelper.cardColor,
+            ),
+            child: child)
+      ]),
     );
   }
 
@@ -40,7 +46,7 @@ class CommonComponents {
               size: 24,
               color: isSelected
                   ? ColorHelper.primaryColor
-                  : ColorHelper.mutedForgroundColor),
+                  : ColorHelper.secondaryForground),
           isSelected
               ? Text(
                   label,

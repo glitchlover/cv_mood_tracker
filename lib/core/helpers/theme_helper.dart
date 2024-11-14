@@ -6,8 +6,9 @@ class ThemeHelper {
   static ThemeData get commonTheme => ThemeData(
       fontFamily: 'Poppins',
       useMaterial3: true,
-      colorSchemeSeed: ColorHelper.primaryColor,
+      primaryColor: ColorHelper.primaryColor,
       scaffoldBackgroundColor: ColorHelper.backgroundColor,
+      shadowColor: ColorHelper.shadowColor,
       textTheme: const TextTheme(
         headlineLarge: StyleHelper.titleStyleBold,
         bodyLarge: StyleHelper.textStyleLargeNormal,
@@ -22,9 +23,11 @@ class ThemeHelper {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
+          backgroundColor: ColorHelper.secondaryForground,
+          foregroundColor: ColorHelper.buttonTextColor,
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(50),
+            borderRadius: BorderRadius.circular(8),
           ),
         ),
       ),
