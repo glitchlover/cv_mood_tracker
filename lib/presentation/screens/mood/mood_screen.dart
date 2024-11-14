@@ -1,3 +1,4 @@
+import 'package:cv_mood_tracker/core/enums/mood.dart';
 import 'package:cv_mood_tracker/core/helpers/asset_helper.dart';
 import 'package:cv_mood_tracker/core/helpers/color_helper.dart';
 import 'package:cv_mood_tracker/core/helpers/space_helper.dart';
@@ -7,24 +8,6 @@ import 'package:cv_mood_tracker/presentation/components/mood_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-
-enum Mood { awsome, happy, neutral, sad, awful }
-
-Map<Mood, String> moodMap = {
-  Mood.awsome: AssetHelper.awsome,
-  Mood.happy: AssetHelper.happy,
-  Mood.neutral: AssetHelper.neutral,
-  Mood.sad: AssetHelper.sad,
-  Mood.awful: AssetHelper.awful,
-};
-
-Map<Mood, String> moodTextMap = {
-  Mood.awsome: "Awsome",
-  Mood.happy: "Happy",
-  Mood.neutral: "Neutral",
-  Mood.sad: "Sad",
-  Mood.awful: "Awful",
-};
 
 class MoodScreen extends StatelessWidget {
   const MoodScreen({Key? key}) : super(key: key);
